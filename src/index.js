@@ -26,8 +26,7 @@ function postToy(toy_data) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  getToys().then(data => console.log(data.forEach(elem => renderToys(elem))))
-  renderToys()
+  getToys().then(data => data.forEach(elem => renderToys(elem)))
   const addBtn = document.querySelector("#new-toy-btn");
   const toyFormContainer = document.querySelector(".container");
   addBtn.addEventListener("click", () => {
@@ -43,12 +42,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function renderToys(toy) {
 let h2 = document.createElement('h2')
-console.log(toy)
+//console.log(toy)
 h2.innerText = toy.name
 }
 
-getToys().then(toys => {
-  toys.forEach(toy => {
-    renderToys(toy)
-  })
-})
+// getToys().then(toys => {
+//   toys.forEach(toy => {
+//     renderToys(toy)
+//   })
+// })
