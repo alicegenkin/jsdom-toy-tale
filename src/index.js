@@ -5,6 +5,9 @@ function getToys() {
   .then (res => res.json())
 }
 
+
+getToys()
+
 function postToy(toy_data) {
   fetch('http://localhost:3000/toys', {
       method: 'POST',
@@ -26,6 +29,7 @@ function postToy(toy_data) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  //console.log(getToys())
   getToys().then(data => data.forEach(elem => renderToys(elem)))
   const addBtn = document.querySelector("#new-toy-btn");
   const toyFormContainer = document.querySelector(".container");
@@ -42,12 +46,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function renderToys(toy) {
 let h2 = document.createElement('h2')
-//console.log(toy)
+toyCollection.append(h2)
 h2.innerText = toy.name
 }
+
+let toyCollection = document.querySelector('#toy-collection')
 
 // getToys().then(toys => {
 //   toys.forEach(toy => {
 //     renderToys(toy)
 //   })
-// })
+//})
